@@ -13,3 +13,7 @@ Number-Course-Lesson-Name.py
 
 **Goals and Time:**
 - My first goal is 100 programs. 
+
+**Finished Courses**
+- Udemy:The Python Bible: https://www.udemy.com/certificate/UC-YOZCKWTF/
+- Coursera: Programming for Everybody (Getting Started with Python)
