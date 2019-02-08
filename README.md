@@ -15,5 +15,5 @@ Number-Course-Lesson-Name.py
 - My first goal is 100 programs. 
 
 **Finished Courses**
-- Udemy:The Python Bible: https://www.udemy.com/certificate/UC-YOZCKWTF/ Feb 8
+- Udemy:The Python Bible: https://www.udemy.com/certificate/UC-YOZCKWTF/ Feb 8 2019
 - Coursera: Programming for Everybody (Getting Started with Python)
