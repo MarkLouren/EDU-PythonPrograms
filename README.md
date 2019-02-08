@@ -16,4 +16,4 @@ Number-Course-Lesson-Name.py
 
 **Finished Courses**
 - Udemy:The Python Bible: https://www.udemy.com/certificate/UC-YOZCKWTF/ Feb 8 2019
-- Coursera: Programming for Everybody (Getting Started with Python)
+- Coursera: Programming for Everybody (Getting Started with Python) Feb 2014
