@@ -59,18 +59,19 @@ from user import User
 users = [
    User (1,'bob', 'asdf')
 ]
-username_mapping = {u.username: u for u in users}
-userid_mapping = {u.id: u for u in users}
+username_mapping = {u.username: u for u in users} #retrive users by username
+userid_mapping = {u.id: u for u in users} #retrive users by name
 
 
-def authenticate(username, password):
-    user = username_mapping.get(username, None)
-    if user and user.password == password:
+def authenticate(username, password):  #authentication of a user
+    user = username_mapping.get(username, None) #retrive a user's name
+    if user and user.password == password:  #check it
         return user
 
 def identity(payload):
     user_id = payload['identity']
     return userid_mapping.get(user_id, None)
+
 
 ## user.py ################################################################
 
