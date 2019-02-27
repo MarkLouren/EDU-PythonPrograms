@@ -44,7 +44,7 @@ class User:
         cursor = connection.cursor()
 
         query = "SELECT * FROM users WHERE id =?"
-        result = cursor.execute (query, (_id,)) #_id,)- show to python that we've created a tupple
+        result = cursor.execute (query, (_id,)) #username,)- show to python that we've created a tupple
         row =result.fetchone()
         if row:
             user = cls(*row) #the same as (row[0], row[1], row[2])
@@ -52,6 +52,7 @@ class User:
             user = None
         connection.close()
         return user
+    
 class UserRegister(Resource):
 #method should addd new users to db
     parser=reqparse.RequestParser()  #Parse the Json request check username and password
@@ -66,6 +67,8 @@ class UserRegister(Resource):
                     help="this field cannot be blank")
     def post (self):
         data=UserRegister.parser.parse_args()  #get data from the parser
+        if User.find_by_usernsme(data['username']):  #help to avoid dublicate users, check if user=None than..put before connection, or it never close
+            return {"message":"A user with that username already exists"},400
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
         query = "INSERT INTO users VALUES (NULL, ?, ?)" #NUL: because id is auto incrementing
@@ -79,6 +82,7 @@ class UserRegister(Resource):
 ####################################################################################################
 ###############################security.py ######### 
 ####################################################################################################
+
 from user import User
 def authenticate(username, password):  #authentication of a user
     user = User.find_by_usernsme(username)
@@ -121,9 +125,6 @@ class Item(Resource):
         return {'item': item}, 200 if item else 404
 
     def post(self, name):
-
-
-
         if next(filter(lambda x: x['name'] == name, items), None) is not None:
             return {'message': "An item with name '{}' already exists".format(name)}, 400
 
@@ -147,7 +148,6 @@ class Item(Resource):
         else:
             item.update(data)
         return item
-
 
 
 class ItemList(Resource):
