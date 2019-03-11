@@ -1,5 +1,5 @@
 #Delete new mesages that contain links in chats
-
+# Tutotial in Ru:  https://groosha.gitbooks.io/telegram-bot-lessons/content/chapter10.html 
 import telebot
 bot = telebot.TeleBot('tokenid')
 
