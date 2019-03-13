@@ -1,4 +1,5 @@
 #Parse HTML content on the page and use this info
+#Course: https://www.udemy.com/the-complete-python-web-course-learn-by-building-8-apps/
 import requests
 from bs4 import BeautifulSoup
 
