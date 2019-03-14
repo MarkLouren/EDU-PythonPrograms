@@ -1,5 +1,5 @@
 import pymongo
-uri = "mongodb://127.0.0.1:27017" #default address for mongo db on the local machine
+uri = "mongodb://127.0.0.1:27017" #default address for mongo db on the local machine ##Universal Resource Identifier
 client = pymongo.MongoClient(uri)
 database=client['fullstack'] #name of db in Mongo
 collection=database['students']
