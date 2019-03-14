@@ -1,7 +1,7 @@
 import pymongo
 uri = "mongodb://127.0.0.1:27017" #default address for mongo db on the local machine
 client = pymongo.MongoClient(uri)
-database=client['fullstack']
+database=client['fullstack'] #name of db in Mongo
 collection=database['students']
 students = [someone['mark'] for someone in collection.find({}) if someone['mark']==100.0] # get list with specific elements and values
 #students = [someone['mark'] for someone in collection.find({})] - get a value from the one element
