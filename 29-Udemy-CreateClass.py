@@ -19,6 +19,8 @@ a.push("BLa")
 a.push("BLa")
 print(a.get_list())
 
+####################################################################################
+####################################################################################
 #Inheritance
 
 class Date(object):   #Inherits from the 'object' class
@@ -31,6 +33,8 @@ class Time(Date):    #inherits from the 'date' class
 tm=Time()
 print (tm.get_date())
 
+####################################################################################
+####################################################################################
 # Use super 
 
 import random
@@ -50,6 +54,8 @@ class Dog(Animal):
 d=Dog('dogname')
 print (d.fetch('meat'))
 
+####################################################################################
+####################################################################################
 #Multiple inheritance
 
 class A(object):
@@ -68,6 +74,8 @@ class D(B,C): #multiple inheritance
 
 print (D.mro()) #order of class inheritance B,A,C
 
+####################################################################################
+####################################################################################
 #Multiple inheritance Diamond shape patern
 class A(object):
     def dothis(self):
@@ -85,6 +93,8 @@ class D(B,C): #multiple inheritance
 
 print (D.mro()) #order of class inheritance B,C,A
 
+####################################################################################
+####################################################################################
 #Сlass Method Example
 class InstanceCounter(object):
     count =0
@@ -110,7 +120,8 @@ for obj in (a,b):
     print (obj.get_val())
 print (obj.get_count())  #two instances
 
-
+####################################################################################
+####################################################################################
 #Static Method Example
 
 class InstanceCounter(object):
@@ -128,3 +139,35 @@ class InstanceCounter(object):
             return value
 a=InstanceCounter('ff')
 print (a.val)
+####################################################################################
+####################################################################################
+# Abstract Classes:
+#Abstract class created in order to set up a structure of other classes in some required form
+import abc #provides facilities for creating abstract classes
+
+class GetterSetter(object):
+    __metaclass__ = abc.ABCMeta  #class that defines other classes, it defined as an abstract class
+
+    @abc.abstractmethod
+    def set_val(self, input):
+        #set a value in the instance
+        return
+    @abc.abstractmethod
+    def get_val(self):
+        # get and return a value from the instance...
+        return
+
+#create a class that inherits from the Abstract class (new class is required to have set_val and get_val!
+class MyClass(GetterSetter):
+    def set_val(self, input):
+        self.set_val=input
+    def get_val(self):
+        return self.set_val
+    def other(self):
+        return ('Hello I ')
+x=MyClass()
+#x=GetterSetter() => impossible to do this!
+print (x.set_val(3))
+print (x.other())
+####################################################################################
+####################################################################################
