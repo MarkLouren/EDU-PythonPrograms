@@ -84,3 +84,28 @@ class D(B,C): #multiple inheritance
     pass
 
 print (D.mro()) #order of class inheritance B,C,A
+
+#СlassMethod Example
+class InstanceCounter(object):
+    count =0
+
+    def __init__(self, val):
+        self.val=val
+        InstanceCounter.count +=1
+
+    def set_val(self, newval):
+        set.val = newval
+
+    def get_val(self):
+        return self.val
+
+    @classmethod  #work with class and it's own attributes
+    def get_count(cls):
+        return  cls.count
+
+a=InstanceCounter(5)
+b=InstanceCounter(24)
+
+for obj in (a,b):
+    print (obj.get_val())
+print (obj.get_count())  #two instances
