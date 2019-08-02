@@ -67,3 +67,20 @@ class D(B,C): #multiple inheritance
     pass
 
 print (D.mro()) #order of class inheritance B,A,C
+
+#Multiple inheritance Diamond shape patern
+class A(object):
+    def dothis(self):
+        print ('doing this in A')
+
+class B(A): 
+    pass
+
+class C(A): #C and B inherit from A so in order BACA, earlier A is removed
+    def dothis(self):
+        print ('doing this in C')
+
+class D(B,C): #multiple inheritance
+    pass
+
+print (D.mro()) #order of class inheritance B,C,A
