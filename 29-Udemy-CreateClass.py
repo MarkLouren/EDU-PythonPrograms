@@ -30,3 +30,22 @@ class Time(Date):    #inherits from the 'date' class
         return '08:13:07'
 tm=Time()
 print (tm.get_date())
+
+# Use super 
+
+import random
+
+class Animal(object):
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    def __init__(self, name):
+       super(Dog, self).__init__(name)  #super designed relate class to the parent class, in this case __init__ function from the parent, uses in order to illiminate code duplication
+       self.breed = random.choice (["Shih Tzu", "Beagle", "Mutt"])
+
+    def fetch(self, thing):
+        print ('{} goes after the {}'.format(self.name, thing))
+
+d=Dog('dogname')
+print (d.fetch('meat'))
