@@ -2,7 +2,7 @@
 class MaxSizeList(object):
 
     def __init__(self, max_length):
-        self.max_length = max_length
+        self.max_length = max_length  #self - is instance or bound method that works with class instances
         self.ls=[]
 
     def push(self, st):
@@ -85,7 +85,7 @@ class D(B,C): #multiple inheritance
 
 print (D.mro()) #order of class inheritance B,C,A
 
-#СlassMethod Example
+#Сlass Method Example
 class InstanceCounter(object):
     count =0
 
@@ -109,3 +109,22 @@ b=InstanceCounter(24)
 for obj in (a,b):
     print (obj.get_val())
 print (obj.get_count())  #two instances
+
+
+#Static Method Example
+
+class InstanceCounter(object):
+    count =0
+
+    def __init__(self, val):
+        self.val=self.filterint(val) #use static method that you can find below
+        InstanceCounter.count +=1
+
+    @staticmethod #neither a class methods that works with classes not instance (self.) method that work with instances. Just utility method that makes some useful staff that we need.
+    def filterint(value):
+        if not isinstance(value, int):
+            return 0
+        else:
+            return value
+a=InstanceCounter('ff')
+print (a.val)
