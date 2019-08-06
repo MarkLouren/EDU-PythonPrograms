@@ -171,3 +171,29 @@ print (x.set_val(3))
 print (x.other())
 ####################################################################################
 ####################################################################################
+# USE SUPER 2
+import abc
+class GetSetParent(object):
+    __metaclass__ =abc.ABCMeta
+    def __inint__(self, value):
+        self.val =0
+
+    def set_val(self, value):
+        self.val=value
+
+    def get_val(self):
+        return self.val
+    @abc.abstractmethod
+    def showdoc(self):
+        return
+
+class GetSetInt(GetSetParent):
+    def set_val(self, value):
+        if not isinstance(value, int):
+            value=0
+        super(GetSetInt, self).set_val(value) #looking to super class GetSetIn, get set_val ans pass an instance argument (alternative of calling Parent name directly)
+
+        def showdoc(self):
+            print ('GetSetInt object {}, only accepts ''integer values'.format(id(self)))
+  ####################################################################################
+####################################################################################
